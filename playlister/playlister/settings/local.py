@@ -57,6 +57,7 @@ INSTALLED_APPS += (
     'debug_toolbar',
     'songs',
     'playlists',
+    'discover_runner',
 )
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
@@ -67,3 +68,14 @@ MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 ########## END TOOLBAR CONFIGURATION
+
+
+########## TEST SETTINGS
+TEST_RUNNER = 'discover_runner.DiscoverRunner'
+TEST_DISCOVER_TOP_LEVEL = SITE_ROOT
+TEST_DISCOVER_ROOT = SITE_ROOT
+TEST_DISCOVER_PATTERN = "test_*.py"
+#
+
+
+

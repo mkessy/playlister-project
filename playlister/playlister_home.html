@@ -1,0 +1,87 @@
+
+{% extends "playlister_base.html" %}
+
+{% block title %}Songza playlists and more{% endblock %}
+
+<!--
+
+<div class="span3">
+    <div class="media" >
+        <a class="pull-left" href="#">
+            <img class="media-object" src="static/img/120x120.gif" 
+            alt="120x120" style="height: 120; width: 120;">
+        </a>
+
+        <div class="media-body">
+            <h6 class="media-heading">Playlist title</h6>
+            <p class="muted">featured artist: artist1, artist2, artist3</p>
+            <p class="muted">description about what this playlist is</p>
+        </div>
+    </div>
+</div>
+
+ context will be a list of 4 item lists :
+     that can be iterated over to list playlists
+-->
+
+<!-- block inherited from playlister_base, starts inside div.row-fluid -->
+{% block content %}
+
+
+<!-- space for two headers, trending playlists and popular/web notable -->
+<div class="page-header">
+    <h4>{{header1}}</h4>
+</div>
+
+{% for playlists in header1_playlists %}
+    <div class="row-fluid">
+
+        {% for playlist in playlists %}
+            <div class="span3">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="{{playlist.cover_url}}"
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">{{playlist.name}}</h6>
+                        <p class="muted">featured artists: {{playlist.featured_artists}}</p>
+                        <p class="muted">{{playlist.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+{% endfor %}
+
+
+<div class="page-header">
+    <h4>{{header2}}</h4>
+</div>
+
+{% for playlists in header2_playlists %}
+    <div class="row-fluid">
+
+        {% for playlist in playlists %}
+            <div class="span3">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="{{playlist.cover_url}}"
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+
+                    <div class="media-body">
+                        <h6 class="media-heading">{{playlist.name}}</h6>
+                        <p class="muted">featured artists: {{playlist.featured_artists}}</p>
+                        <p class="muted">{{playlist.description}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+
+
+{% endblock %}

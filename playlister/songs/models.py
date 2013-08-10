@@ -25,9 +25,10 @@ class Song(models.Model):
 
     def __unicode__(self):
         return "Title: %s\n \
+                Artist: %s\n \
                 Album: %s\n \
                 Genre: %s\n \
                 Runtime: %s\n \
                 Added: %s\n \
-                Pk: %s\n" % (self.title, self.album, self.genre, self.duration,
+                Pk: %s\n" % (self.title, self.artist, self.album, self.genre, self.duration,
                         self.date, self.songid)
