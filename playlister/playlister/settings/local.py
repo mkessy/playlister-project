@@ -98,8 +98,8 @@ TEST_DISCOVER_ROOT = SITE_ROOT
 TEST_DISCOVER_PATTERN = "test_*.py"
 #
 
-HEROKU STUFF
- Parse database configuration from $DATABASE_URL
+#HEROKU STUFF
+# Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
