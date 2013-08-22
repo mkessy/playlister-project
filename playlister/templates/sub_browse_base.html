@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>sub_browse_base</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" screen="media" 
+            href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-2.3.2.css">
+        <link type="text/css" rel="stylesheet" href="playlister-bootstrap.css">
+
+        <style type="text/css">
+
+            .main, .side {
+                height: 100%;
+                border: 1px dotted;
+
+            }
+
+            .navigation, .brand {
+                padding: 10px 0px 10px 0px;
+            }
+
+            .small-header {
+                padding: 10px 10px 10px 10px;
+            }
+
+            .small-header {
+                line-height: 100px
+            }
+
+            div.media {
+                padding: 10px 10px 10px 10px;
+            }
+
+            body {
+                padding-top: 10px;
+                padding-bottom: 20px;
+            }
+
+            .affix {
+                top: 30%;
+                left: 5%
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="span2 side">
+                    <div class="row-fluid">
+                        <ul class="nav nav-list affix well" style="font-size: 18px">
+                            <li><a href="#">genres</a></li>
+                            <li><a href="#">activities</a></li>
+                            <li><a href="#">moods</a></li>
+                            <li><a href="#">decades</a></li>
+                            <li><a href="#">culture</a></li>
+                            <li><a href="#">record store clerk</a></li>
+                            <li><a href="#">popular</a></li>
+                            <li><a href="#">trending</a></li>
+                            <li><a href="#" style="margin-top: 50px">about</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="span10 main" style="width: 80%">
+
+                    <div class="row-fluid" style="border: 1px solid black">
+
+                        <div class="row-fluid">
+                            <div class="span12 header">
+                                <div class="page-header">
+                                    <h1>Playlister <small style="font-size: 14px">Songza playlists and more</small></h1>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- content -->
+                        <div class="row-fluid">
+                            <div class="span12">
+
+                                <div class="header">
+                                    <h3>Browse title</h3>
+                                </div>
+
+
+                                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                        <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+                                        <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab1">
+                                            <p>I'm in Section 1.</p>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <p>I'm in Section 2.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end content -->
+
+
+                    </div>
+
+                    <div class="row-fluid">
+
+                    </div>
+                </div>
+            </div>
+            <script src="http://code.jquery.com/jquery.js"></script>
+            <script src="static/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
+        </body>
+
+    </html>

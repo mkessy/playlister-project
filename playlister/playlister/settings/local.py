@@ -1,7 +1,7 @@
 """Development settings and globals."""
 
 
-from os.path import join, normpath
+from os.path import join, normpath, realpath, dirname
 
 from base import *
 
@@ -13,6 +13,13 @@ DEBUG = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
+
+########## TEMPLATE CONFIGURATION
+
+PROJECT_PATH = realpath(dirname(__file__))
+
+
+########## END TEMPLATE CONFIGURATION
 
 
 ########## EMAIL CONFIGURATION

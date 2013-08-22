@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 
 thedate = pytz.utc
@@ -18,17 +18,20 @@ class Song(models.Model):
     artist = models.CharField(default='Artist name',
                               max_length=200)
     cover_url = models.URLField()
+    slug = models.SlugField(max_length=200)
     duration = models.IntegerField()
     genre = models.CharField(default='Song genre',
                              max_length=200)
-    # possibly add a relationship with Category
+
+    class Meta:
+        ordering = ["title"]
+
 
     def __unicode__(self):
-        return "Title: %s\n \
-                Artist: %s\n \
-                Album: %s\n \
-                Genre: %s\n \
-                Runtime: %s\n \
-                Added: %s\n \
-                Pk: %s\n" % (self.title, self.artist, self.album, self.genre, self.duration,
-                        self.date, self.songid)
+        return "Title: %s" % self.title
+
+    def formatted_duration(self):
+        return str(timedelta(seconds=self.duration))
+
+
+

@@ -1,0 +1,100 @@
+{% extends "playlister_base_onecol.html" %}
+
+{% block title %}Songza playlists and more{% endblock %}
+
+{% block css %}<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/project.css">{% endblock %}
+
+<!-- block inherited from playlister_base, starts inside div.row-fluid -->
+{% block content %}
+
+
+<!-- space for two headers, trending playlists and popular/web notable -->
+<div class="page-header media">
+    <a class="anchor" id="trending"></a>
+    <h4>{{header1}}</h4>
+</div>
+
+{% for playlists in header1_playlists %}
+    <div class="row-fluid playlists">
+
+        {% for playlist in playlists %}
+            <div class="span4">
+                <div class="media">
+                    <a class="pull-left" href="{% url 'playlist' playlist.playlistid %}">
+                       <img class="media-object" src="{{playlist.cover_url}}"
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+
+                    <div class="media-body">
+                        <a href="{% url 'playlist' playlist.playlistid %}">
+                            <h6 class="media-heading">{{playlist.name}}</h6>
+                        </a>
+                        <p class="muted">w/ {{playlist.featured_artists}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+{% endfor %}
+
+
+<div id="#new" class="page-header media">
+    <a class="anchor" id="new"></a>
+    <h4>{{header2}}</h4>
+</div>
+
+{% for playlists in header2_playlists %}
+    <div class="row-fluid playlists">
+
+        {% for playlist in playlists %}
+            <div class="span4">
+                <div class="media">
+                    <a class="pull-left" href="{% url 'playlist' playlist.playlistid %}">
+                        <img class="media-object" src="{{playlist.cover_url}}"
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+
+                    <div class="media-body">
+
+                        <a href="{% url 'playlist' playlist.playlistid %}">
+                            <h6 class="media-heading">{{playlist.name}}</h6>
+                        </a>
+                        <p class="muted">w/ {{playlist.featured_artists}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<div class="page-header media">
+    <a class="anchor" id="popular"></a>
+    <h4>{{header3}}</h4>
+</div>
+
+{% for playlists in header3_playlists %}
+    <div class="row-fluid playlists">
+
+        {% for playlist in playlists %}
+            <div class="span4">
+                <div class="media">
+                    <a class="pull-left" href="{% url 'playlist' playlist.playlistid %}">
+                        <img class="media-object" src="{{playlist.cover_url}}"
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+
+                    <div class="media-body">
+                        <a href="{% url 'playlist' playlist.playlistid %}">
+                            <h6 class="media-heading">{{playlist.name}}</h6>
+                        </a>
+                        <p class="muted">w/ {{playlist.featured_artists}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}
+{% block jscript %}
+    <script src="{{STATIC_URL}}js/project.js"></script>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "playlister_base_onecol.html" %}
+
+
+
+{% block title %}{{playlist.name}} - Playlister{% endblock %}
+
+{% block css %}<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/project.css">{% endblock %}
+
+{% block content %}
+
+
+    <div class="span6">
+
+        <div class="row top-bar-align">
+            <div class="span12">
+                <h4>{{playlist.name}}</h4>
+            </div>
+        </div>
+
+        <div class="row-fluid" style="padding-left: 10px"> 
+            <div class="span12">
+                <p>{{playlist.description}} </p>
+            </div>
+        </div>
+
+
+        <div class="row top-bar-align p-info" >
+            <div class="span12" style="clear: both">
+                <p class="alignleft"><a style="color: #CC5500" href={{playlist.songza_url}}>Listen on Songza</a>
+                &middot; {{playlist.song_count}} songs &middot; {{playlist.formatted_duration}} &middot; Created by {{playlist.creator}}</p>
+            </div>
+        </div>
+
+
+            <ul class="songs media-list" style="padding-left: 10px">
+
+                {% for song in playlistsongs %}
+
+                <li class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src={{song.cover_url}}
+                    alt="64x64" style="height: 64; width: 64;">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{song.title}}</h4>
+                    <p style="font-size: 14px">{{song.artist}} &middot; {{song.album}}</p>
+                    <p style="font-size: 12px; muted">{{song.formatted_duration}}</p>
+                </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+    </div>
+
+    <div class="span4 offset2">
+
+        <div class="header">
+            <h4>similar playlists</h4>
+        </div>
+
+        <!-- can fit two 120x120 playlist media objects side-by-side:
+        'similar' is a list of length 2 lists -->
+        {% for playlists in similar %}
+        <div class="row">
+            {% for playlist in playlists %}
+
+            <div class="span12" style="padding-left: 10px">
+                <div class="media">
+                    <a class="pull-left" href="{% url 'playlist' playlist.playlistid %}">
+                        <img class="media-object" src={{playlist.cover_url}}
+                        alt="120x120" style="height: 120; width: 120;">
+                    </a>
+                    <div class="media-body">
+                        <a href="{% url 'playlist' playlist.playlistid %}">
+                            <h6 class="media-heading">{{playlist.name}}</h6>
+                        </a>
+                        <p class="muted">w/ {{playlist.featured_artists}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block jscript %}
+    <script src="{{STATIC_URL}}js/project.js"></script>
+{% endblock %}
+
+

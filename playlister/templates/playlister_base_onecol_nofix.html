@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Insert Title Here {% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" screen="media" 
+        href="{{STATIC_URL}}css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/playlister-bootstrap.css">
+        {% block css %}{% endblock %}
+        <style type="text/css" rel="stylesheet">
+            .content {
+                padding-top: 20px;
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">var switchTo5x=false;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "4b727f75-04d5-416b-88d5-bb1bb536e19c", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+    <body>
+        {% block sidebar %}
+        {% endblock %}
+        <div class="container">
+
+
+            <div class="row top-bar">
+
+                <div class="row">
+
+                    <div class="span12 top-bar-align">
+
+                        <div class="header">
+                            <h1>Playlister <small style="font-size: 14px">Songza playlists and more</small></h1>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 15px">
+
+                    <div class="span12 top-bar-align">
+
+                        <div class="row top-bar-items">
+                            <div class="items">
+                                <a href="{% url 'home' %}">
+                                    <p><strong>home</strong></p>
+                                </div>
+                            </a>
+                            <div class="items">
+                                <a href="#">
+                                    <p><strong>about</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+
+                                <span class='st_sharethis' displayText='share'></span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row top-bar-items">
+
+                            <div class="items">
+                                <a href="{%url 'home' %}#popular">
+                                    <p><strong>popular</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{% url 'home'%}#trending">
+                                    <p><strong>trending</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{% url 'home' %}#new">
+                                    <p><strong>new</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{%url 'category' '_activities' %}">
+                                    <p><strong>activities</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{%url 'category' '_moods' %}">
+                                    <p><strong>moods</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{%url 'category' '_genres' %}">
+                                    <p><strong>genres</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a href="{%url 'category' '_culture' %}">
+                                    <p><strong>culture</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+
+                                <a href="{%url 'category' '_decades' %}">
+                                    <p><strong>decades</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+
+                                <a href="{%url 'category' '_record_store_clerk' %}">
+                                    <p><strong>record store clerk</strong></p>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        {% block bar-items %}
+                        {% endblock %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row-fluid content">
+
+                    {% block content %}
+                    {% endblock %}
+
+            </div>
+
+        </div>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+        {% block jscript %}{% endblock %}
+    </body>
+</html>

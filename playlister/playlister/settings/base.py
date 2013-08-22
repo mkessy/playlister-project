@@ -95,7 +95,7 @@ STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'static')),
+        normpath(join(SITE_ROOT, 'static')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -110,6 +110,7 @@ STATICFILES_FINDERS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
 SECRET_KEY = r"vh-m1u@fljri^k(vryk3e9k=0nt&x%4qwca7c#8izcb(&h@)+9"
+
 ########## END SECRET CONFIGURATION
 
 
@@ -200,7 +201,7 @@ THIRD_PARTY_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
         'songs',
-        'playlists',
+        'playlists'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

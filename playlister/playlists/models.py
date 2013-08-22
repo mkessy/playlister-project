@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from datetime import datetime, timedelta
 from songs.models import Song
 
 import pytz
@@ -26,8 +26,13 @@ class Playlist(models.Model):
                                     max_length=200)
     song_count = models.IntegerField()
 
+    slug = models.SlugField(max_length=200)
+
     songza_url = models.URLField()
     spotify_url = models.URLField()
+
+    class Meta:
+        ordering = ["name"]
 
 
     def get_similar(self):
@@ -43,27 +48,35 @@ class Playlist(models.Model):
         """
 
         similar_url = 'http://songza.com/api/1/station/%s/similar'
+
+        HEADER = {"User-Agent":
+                "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)"}
+
+
         REQUEST_KWARGS = {'headers':HEADER, 'timeout':10.0, 'allow_redirects':False}
 
         similar = requests.get(similar_url%str(self.playlistid), **REQUEST_KWARGS)
         if similar.status_code != 200:
             return None
         else:
-            similar = res.json()
+            similar = similar.json()
 
         similar_ids = [station['id'] for station in similar]
-        similar = Playlists.objects.filter(pk__in=similar_ids)
+        similar = Playlist.objects.filter(pk__in=similar_ids)
 
         return similar
 
 
+
     def __unicode__(self):
-        return "Name: %s\n \
-                Count: %s\n \
-                Creator: %s\n \
-                Added: %s\n \
-                Pk: %s\n" % (self.name, self.song_count, self.creator, self.date,
-                        self.playlistid)
+        return "%s" % (self.name)
+
+    def formatted_duration(self):
+        total_duration = 0
+        for song in self.songs.all():
+            total_duration += song.duration
+        return str(timedelta(seconds=total_duration))
+
 
 
 class Group(models.Model):
@@ -72,7 +85,26 @@ class Group(models.Model):
     name = models.CharField(max_length=200, default='The name of the group')
     stations = models.ManyToManyField(Playlist)
     keywords = models.CharField(max_length=200, default='Some, key, words')
+    slug = models.SlugField(max_length=200)
     date = models.DateTimeField(auto_now=True, blank=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __unicode__(self):
+        return "%s" % (self.name)
+
+    def chunk_4(self):
+        from playlist_helpers import chunk_list
+        return chunk_list(self.stations.all(), 4)
+
+    def chunk_3(self):
+        from playlist_helpers import chunk_list
+        return chunk_list(self.stations.all(), 3)
+
+
+    def __unicode__(self):
+        return "%s" % (self.name)
 
 
 class Category(models.Model):
@@ -80,16 +112,27 @@ class Category(models.Model):
     categoryid = models.CharField(primary_key=True, max_length=200)
     name = models.CharField(max_length=200, default='The name of the category')
     groups = models.ManyToManyField(Group)
+
+    slug = models.SlugField(max_length=200)
     date = models.DateTimeField(auto_now=True, blank=True)
 
+    class Meta:
+        ordering=["name"]
 
+    def __unicode__(self):
+        return "%s" % (self.name)
 
+    def chunk_10(self):
+        from playlist_helpers import chunk_list
+        return chunk_list(self.groups.all(), 10)
 
+    def chunk_8(self):
+        from playlist_helpers import chunk_list
+        return chunk_list(self.groups.all(), 8)
 
-
-
-
-
+    def chunk_12(self):
+        from playlist_helpers import chunk_list
+        return chunk_list(self.groups.all(), 12)
 
 
 
