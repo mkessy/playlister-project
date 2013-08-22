@@ -30,13 +30,14 @@
 
                 <div class="row">
 
-                    <div class="span12 top-bar-align">
-
-                        <div class="header">
-                            <h1>Playlister <small style="font-size: 14px">Songza playlists and more</small></h1>
+                    <a href="{% url 'home' %}">
+                        <div class="span12 top-bar-align">
+                            <div class="header">
+                                <h1>Playlister <small style="font-size: 14px">Songza playlists and more</small></h1>
+                            </div>
                         </div>
+                    </a>
 
-                    </div>
                 </div>
 
                 <div class="row" style="padding-top: 15px">
@@ -50,15 +51,13 @@
                                 </div>
                             </a>
                             <div class="items">
-                                <a href="#">
+                                <a href="{% url 'about' %}">
                                     <p><strong>about</strong></p>
                                 </a>
                             </div>
 
                             <div class="items">
-
                                 <span class='st_sharethis' displayText='share'></span>
-
                             </div>
 
                         </div>
@@ -136,7 +135,6 @@
 
                     {% block content %}
                     {% endblock %}
-
             </div>
 
         </div>

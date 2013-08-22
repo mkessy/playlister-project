@@ -1,0 +1,32 @@
+{% extends "playlister_base_onecol_nofix.html" %}
+
+{% block title %}about{% endblock %}
+{% block css %}<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/project.css">{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-header" style="padding-left: 10px; display: block;">
+    <h3>about</h3>
+
+</div>
+
+<div class="row-fluid " style="font-size: 16px; padding-left: 10px">
+    <p><span style="background-color: yellow">disclaimer </span>
+
+    this website is in no way affiliated with songza.com</p>
+    <p class="muted">made in minneapolis by mepuka</p>
+</div>
+
+
+
+<div class="row-fluid" style="padding-top: 450px">
+
+    <p class="muted"><small>copyright 2013 mepuka</small></p>
+
+</div>
+
+{% endblock %}
+
+{% block jscript %}<script src="{{STATIC_URL}}js/project.js"></script>{% endblock %}

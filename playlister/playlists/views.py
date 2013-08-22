@@ -87,6 +87,13 @@ def group(request, groupid):
     return render_to_response('playlist_group.html',
             RequestContext(request, {"group": grp, "category": cat,}))
 
+def about(request):
+
+    return render_to_response('about.html',
+            RequestContext(request, {}))
+
+
+
 def trending(request):
     """View for the trending sub-section"""
 

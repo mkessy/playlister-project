@@ -1,13 +1,14 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 
-from playlists.views import home
+from playlists.views import home, about
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
         url(r'^$', home, name="home" ),
+        url(r'^about/', about, name="about"),
         url(r'^items/', include('playlists.urls')),
 
     # Examples:
