@@ -35,28 +35,26 @@ TIME_ZONE = 'America/Chicago'
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 #DATABASES = {
-#        'default': {
-#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#            'NAME': 'django_db',
-#            'USER': 'django_user',
-#            'PASSWORD': 'koko12',
-#            'HOST': 'localhost',
-#            'PORT': '',
-#            }
-#        }
-#
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#    }
+#}
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'maindb',
+            'USER': 'django_login',
+            'PASSWORD': '',
+            }
+        }
+
 
 
 ########### END DATABASE CONFIGURATION

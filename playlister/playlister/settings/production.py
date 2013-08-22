@@ -20,7 +20,7 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -59,21 +59,59 @@ DATABASES = {
 
 ########## END DATABASE CONFIGURATION
 
+########## TOOLBAR CONFIGURATION
+# See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
+INSTALLED_APPS += (
+    'debug_toolbar',
+    'songs',
+    'playlists',
+    'discover_runner',
+)
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            }
+        }
 ########## END CACHE CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_env_setting('SECRET_KEY')
+#SECRET_KEY = get_env_setting('SECRET_KEY')
+SECRET_KEY = 'bug_the_cat'
 ########## END SECRET CONFIGURATION
 
 
 ########## SITE CONFIGURATION
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 ########## END SITE CONFIGURATION
+
+
+#HEROKU STUFF
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
