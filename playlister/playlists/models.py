@@ -14,19 +14,19 @@ class Playlist(models.Model):
 
     playlistid = models.IntegerField(primary_key=True)
     name = models.CharField(default='The name of the playlist',
-                            max_length=200)
+                            max_length=500)
     songs = models.ManyToManyField(Song)
     creator = models.CharField(default='The creator of the playlist',
-                               max_length=200)
+                               max_length=500)
     cover_url = models.URLField()
     date = models.DateTimeField(auto_now=True, blank=True)
     description = models.CharField(default='A description of the playlist',
-                                   max_length=200)
+                                   max_length=500)
     featured_artists = models.CharField(default='A, list, of, the artists, formatted, like, this',
-                                    max_length=200)
+                                    max_length=500)
     song_count = models.IntegerField()
 
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=500)
 
     songza_url = models.URLField()
     spotify_url = models.URLField()
@@ -81,11 +81,11 @@ class Playlist(models.Model):
 
 class Group(models.Model):
 
-    groupid = models.CharField(primary_key=True, max_length=200)
-    name = models.CharField(max_length=200, default='The name of the group')
+    groupid = models.CharField(primary_key=True, max_length=500)
+    name = models.CharField(max_length=500, default='The name of the group')
     stations = models.ManyToManyField(Playlist)
-    keywords = models.CharField(max_length=200, default='Some, key, words')
-    slug = models.SlugField(max_length=200)
+    keywords = models.CharField(max_length=500, default='Some, key, words')
+    slug = models.SlugField(max_length=500)
     date = models.DateTimeField(auto_now=True, blank=True)
 
     class Meta:
@@ -109,11 +109,11 @@ class Group(models.Model):
 
 class Category(models.Model):
 
-    categoryid = models.CharField(primary_key=True, max_length=200)
-    name = models.CharField(max_length=200, default='The name of the category')
+    categoryid = models.CharField(primary_key=True, max_length=500)
+    name = models.CharField(max_length=500, default='The name of the category')
     groups = models.ManyToManyField(Group)
 
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=500)
     date = models.DateTimeField(auto_now=True, blank=True)
 
     class Meta:

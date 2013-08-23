@@ -9,7 +9,6 @@ from base import *
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
@@ -45,7 +44,7 @@ TIME_ZONE = 'America/Chicago'
 #        'PORT': '',
 #    }
 #}
-#
+
 #DATABASES = {
 #        'default': {
 #            'ENGINE': 'django.db.backends.postgresql_psycopg2',
