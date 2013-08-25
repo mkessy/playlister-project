@@ -7,7 +7,7 @@ from base import *
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG =  False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -57,9 +57,9 @@ TIME_ZONE = 'America/Chicago'
 #        }
 #
 #
-#
-############ END DATABASE CONFIGURATION
-#
+
+########### END DATABASE CONFIGURATION
+
 HAYSTACK_CONNECTIONS = {
         'default': {
             'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
@@ -107,7 +107,7 @@ TEST_DISCOVER_TOP_LEVEL = SITE_ROOT
 TEST_DISCOVER_ROOT = SITE_ROOT
 TEST_DISCOVER_PATTERN = "test_*.py"
 #
-
+#
 #HEROKU STUFF
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
