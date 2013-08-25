@@ -1,4 +1,4 @@
-./django-haystack
+git+git://github.com/mkessy/django-haystack.git
 Django==1.5.1
 Jinja2==2.7.1
 MarkupSafe==0.18
