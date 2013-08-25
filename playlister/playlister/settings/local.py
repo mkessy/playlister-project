@@ -45,32 +45,32 @@ TIME_ZONE = 'America/Chicago'
 #    }
 #}
 
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'django_db',
-            'USER': 'django_user',
-            'PASSWORD': 'koko12',
-            'HOST': 'localhost',
-            'PORT': '',
-            }
-        }
-
-
-
-########### END DATABASE CONFIGURATION
-
-HAYSTACK_CONNECTIONS = {
-        'default': {
-            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-            'PATH': join(SITE_ROOT, 'whoosh_index'),
-            'EXCLUDED_INDEXES': [
-                ]
-            },
-
-        }
-
-
+#DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#            'NAME': 'django_db',
+#            'USER': 'django_user',
+#            'PASSWORD': 'koko12',
+#            'HOST': 'localhost',
+#            'PORT': '',
+#            }
+#        }
+#
+#
+#
+############ END DATABASE CONFIGURATION
+#
+#HAYSTACK_CONNECTIONS = {
+#        'default': {
+#            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+#            'PATH': join(SITE_ROOT, 'whoosh_index'),
+#            'EXCLUDED_INDEXES': [
+#                ]
+#            },
+#
+#        }
+#
+#
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
@@ -110,25 +110,25 @@ TEST_DISCOVER_PATTERN = "test_*.py"
 
 #HEROKU STUFF
 # Parse database configuration from $DATABASE_URL
-#import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
-#
-## Honor the 'X-Forwarded-Proto' header for request.is_secure()
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#
-## Allow all host headers
-#ALLOWED_HOSTS = ['*']
-#
-## Static asset configuration
-#import os
-#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-#STATIC_URL = '/static/'
-#
-#STATICFILES_DIRS = (
-#   normpath(join(SITE_ROOT, 'static')),
-#)
-#
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+   normpath(join(SITE_ROOT, 'static')),
+)
+
 
 
 
