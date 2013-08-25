@@ -8,6 +8,7 @@ from base import *
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
+
 ALLOWED_HOSTS = ['*']
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -55,7 +56,7 @@ TIME_ZONE = 'America/Chicago'
 #            'PORT': '',
 #            }
 #        }
-#
+
 
 
 ########### END DATABASE CONFIGURATION
@@ -107,10 +108,10 @@ TEST_DISCOVER_TOP_LEVEL = SITE_ROOT
 TEST_DISCOVER_ROOT = SITE_ROOT
 TEST_DISCOVER_PATTERN = "test_*.py"
 #
-
+#
 #HEROKU STUFF
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
+#import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

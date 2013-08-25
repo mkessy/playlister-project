@@ -10,6 +10,23 @@
         <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/playlister-bootstrap.css">
         {% block css %}{% endblock %}
 
+        <style type="text/css" rel="stylesheet">
+
+            @font-face {
+                font-family: "Liberation Serif Regular";
+                src: url("{{STATIC_URL}}fonts/LiberationSerif-Regular.ttf");
+
+            }
+            body {
+                font-family: "Liberation Serif", "Liberation Serif Regular", serif;
+                font-weight: normal;
+
+            }
+
+        </style>
+
+
+
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,7 +37,6 @@
             ga('send', 'pageview');
 
         </script>
-
 
     </head>
 

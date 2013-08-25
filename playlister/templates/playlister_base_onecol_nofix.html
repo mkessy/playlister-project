@@ -13,6 +13,17 @@
             .content {
                 padding-top: 20px;
             }
+
+            @font-face {
+                font-family: "Liberation Serif Regular";
+                src: url("{{STATIC_URL}}fonts/LiberationSerif-Regular.ttf");
+
+            }
+            body {
+                font-family: "Liberation Serif", "Liberation Serif Regular", serif;
+                font-weight: normal;
+            }
+
         </style>
 
         <script>
@@ -23,6 +34,8 @@
 
             ga('create', 'UA-43448709-1', 'playlister.io');
             ga('send', 'pageview'); </script> 
+
+
     </head>
 
     <body>
