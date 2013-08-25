@@ -60,17 +60,17 @@ TIME_ZONE = 'America/Chicago'
 #
 ############ END DATABASE CONFIGURATION
 #
-#HAYSTACK_CONNECTIONS = {
-#        'default': {
-#            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-#            'PATH': join(SITE_ROOT, 'whoosh_index'),
-#            'EXCLUDED_INDEXES': [
-#                ]
-#            },
-#
-#        }
-#
-#
+HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': join(SITE_ROOT, 'whoosh_index'),
+            'EXCLUDED_INDEXES': [
+                ]
+            },
+
+        }
+
+
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
