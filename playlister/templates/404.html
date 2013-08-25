@@ -1,9 +1,15 @@
-{% extends "base.html" %}
+{% extends "playlister_base_onecol_nofix.html" %}
 
 {% block title %}Page Not found{% endblock %}
-
-{% block page_title %}Page Not found{% endblock page_title %}
+{% block css %}<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/project.css">{% endblock %}
 
 {% block content %}
-<p>This is not the page you were looking for.</p>
+
+<div class="row top-bar-align">
+    <div class="header">
+        <h2>404 - Page Not Found</h2>
+    </div>
+    <p><strong>This is not the page you were looking for.</strong></p>
+</div>
+
 {% endblock content %}

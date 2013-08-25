@@ -67,12 +67,12 @@
 
             <div class="span12" style="padding-left: 10px">
                 <div class="media">
-                    <a class="pull-left" href="{% url 'playlist' playlist.playlistid %}">
+                    <a class="pull-left" href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
                         <img class="media-object" src={{playlist.cover_url}}
                         alt="120x120" style="height: 120; width: 120;">
                     </a>
                     <div class="media-body">
-                        <a href="{% url 'playlist' playlist.playlistid %}">
+                        <a href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
                             <h6 class="media-heading">{{playlist.name}}</h6>
                         </a>
                         <p class="muted">w/ {{playlist.featured_artists}}</p>

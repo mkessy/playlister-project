@@ -42,13 +42,13 @@ def home(request):
 
     return render_to_response('playlister_home.html', context_dict)
 
-def playlist(request, playlistid):
+def playlist(request, **kwargs):
 
     # context variables for 'playlist_view.html'
     # playlist
     # similar
 
-    plist = get_object_or_404(Playlist, playlistid=playlistid)
+    plist = get_object_or_404(Playlist, **kwargs)
     songs = plist.songs.all()
     similar = plist.get_similar()
 

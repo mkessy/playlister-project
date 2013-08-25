@@ -1,1 +1,15 @@
-<h1>Whoops!</h1>
+{% extends "playlister_base_onecol_nofix.html" %}
+
+{% block title %}Page Not found{% endblock %}
+{% block css %}<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/project.css">{% endblock %}
+
+{% block content %}
+<div class="row top-bar-align">
+<div class="header">
+    <h2>500 - Server Error</h2>
+</div>
+
+<p><strong>This is a mess up on my end. Sorry.</strong></p>
+</div>
+
+{% endblock content %}
