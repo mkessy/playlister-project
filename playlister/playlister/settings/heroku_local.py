@@ -1,6 +1,5 @@
 """Development settings and globals."""
 
-
 from os.path import join, normpath, realpath, dirname
 
 from base import *
@@ -10,7 +9,6 @@ from base import *
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
@@ -21,6 +19,7 @@ PROJECT_PATH = realpath(dirname(__file__))
 
 
 ########## END TEMPLATE CONFIGURATION
+
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
@@ -34,7 +33,7 @@ TIME_ZONE = 'America/Chicago'
 ########## END TIMEZONE CONFIGURATION
 
 ########## DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+#See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
@@ -123,11 +122,11 @@ ALLOWED_HOSTS = ['*']
 # Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+   normpath(join(SITE_ROOT, 'static')),
 )
 
 
