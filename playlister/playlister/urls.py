@@ -10,6 +10,7 @@ urlpatterns = patterns('',
         url(r'^$', home, name="home" ),
         url(r'^about/', about, name="about"),
         url(r'^items/', include('playlists.urls')),
+        url(r'^search/', include('haystack.urls')),
 
     # Examples:
     # url(r'^$', 'playlister.views.home', name='home'),

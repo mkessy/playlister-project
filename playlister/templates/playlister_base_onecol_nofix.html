@@ -22,10 +22,7 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-43448709-1', 'playlister.io');
-            ga('send', 'pageview');
-
-        </script>
-
+            ga('send', 'pageview'); </script> 
     </head>
 
     <body>
@@ -61,6 +58,12 @@
                             <div class="items">
                                 <a href="{% url 'about' %}">
                                     <p><strong>about</strong></p>
+                                </a>
+                            </div>
+
+                            <div class="items">
+                                <a class="burnt-orange" href="{% url 'haystack_search' %}">
+                                    <p><strong>search</strong></p>
                                 </a>
                             </div>
 

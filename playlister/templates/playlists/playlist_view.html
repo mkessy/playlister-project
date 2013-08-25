@@ -20,13 +20,14 @@
         <div class="row-fluid" style="padding-left: 10px"> 
             <div class="span12">
                 <p>{{playlist.description}} </p>
+                <p>w/ {{playlist.featured_artists}}</p>
             </div>
         </div>
 
 
         <div class="row top-bar-align p-info" >
             <div class="span12" style="clear: both">
-                <p class="alignleft"><a style="color: #CC5500" href={{playlist.songza_url}}>Listen on Songza</a>
+                <p class="alignleft"><a class="burnt-orange" style="color: #CC5500" href={{playlist.songza_url}}>Listen on Songza</a>
                 &middot; {{playlist.song_count}} songs &middot; {{playlist.formatted_duration}} &middot; Created by {{playlist.creator}}</p>
             </div>
         </div>

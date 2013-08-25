@@ -1,0 +1,5 @@
+
+
+{{ object.name }}
+{{ object.date }}
+{{ object.featured_artists }}

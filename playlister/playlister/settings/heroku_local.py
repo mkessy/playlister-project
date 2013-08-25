@@ -22,7 +22,6 @@ PROJECT_PATH = realpath(dirname(__file__))
 
 ########## END TEMPLATE CONFIGURATION
 
-
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -61,6 +60,17 @@ TIME_ZONE = 'America/Chicago'
 
 
 ########### END DATABASE CONFIGURATION
+
+HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': join(SITE_ROOT, 'whoosh_index'),
+            'EXCLUDED_INDEXES': [
+                ]
+            },
+
+        }
+
 
 
 ########## CACHE CONFIGURATION
