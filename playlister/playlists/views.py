@@ -103,10 +103,13 @@ def trending(request):
 
     trending = helpers.get_trending_playlists()
 
-    trending = helpers.chunk_list(trending, 4)
-    return render_to_response('playlist_group.html',
-            RequestContext(request, {"group_name": "trending",
-                "group": trending,}))
+    if trending is not None:
+        trending = helpers.chunk_list(trending, 4)
+        return render_to_response('playlist_group.html',
+                RequestContext(request, {"group_name": "trending",
+                    "group": trending,}))
+    else:
+        raise Http404
 
 
 def new(request):
@@ -115,9 +118,12 @@ def new(request):
     new = helpers.get_new_playlists()
 
     new = helpers.chunk_list(new, 4)
-    return render_to_response('playlist_group.html',
-            RequestContext(request, {"group_name": "new and notable",
-                "group": new,}))
+    if new is not None:
+        return render_to_response('playlist_group.html',
+                RequestContext(request, {"group_name": "new and notable",
+                    "group": new,}))
+    else:
+        raise Http404
 
 def alltime(request):
     """View for the new and notable sub-section"""
@@ -125,8 +131,11 @@ def alltime(request):
     alltime_pop = helpers.get_alltime_playlists()
 
     alltime_pop = helpers.chunk_list(alltime_pop, 4)
-    return render_to_response('playlist_group.html',
-            RequestContext(request, {"group_name": "popular this year",
-            "group": alltime_pop,}))
 
+    if alltime_pop is not None:
+        return render_to_response('playlist_group.html',
+                RequestContext(request, {"group_name": "popular this year",
+                "group": alltime_pop,}))
+    else:
+        raise Http404
 

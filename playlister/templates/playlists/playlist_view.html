@@ -33,23 +33,29 @@
         </div>
 
 
-            <ul class="songs media-list" style="padding-left: 10px">
+        <ul class="songs media-list" style="padding-left: 10px">
 
-                {% for song in playlistsongs %}
+            {% for song in playlistsongs %}
 
-                <li class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src={{song.cover_url}}
-                    alt="64x64" style="height: 64; width: 64;">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">{{song.title}}</h4>
-                    <p style="font-size: 14px">{{song.artist}} &middot; {{song.album}}</p>
-                    <p style="font-size: 12px; muted">{{song.formatted_duration}}</p>
+            <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src={{song.cover_url}}
+                alt="64x64" style="height: 64; width: 64;">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{song.title}}</h4>
+                <p style="font-size: 14px">{{song.artist}} &middot; {{song.album}}</p>
+                <p style="font-size: 12px; muted">{{song.formatted_duration}}</p>
+            </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+            <div class="row top-bar-align">
+                <div class="span12">
+                    <p class="muted"><small><em>Last updated: {{playlist.date}}</em></small></p>
                 </div>
-                </li>
-                {% endfor %}
-            </ul>
+            </div>
 
     </div>
 
@@ -61,27 +67,39 @@
 
         <!-- can fit two 120x120 playlist media objects side-by-side:
         'similar' is a list of length 2 lists -->
-        {% for playlists in similar %}
-        <div class="row">
-            {% for playlist in playlists %}
 
-            <div class="span12" style="padding-left: 10px">
-                <div class="media">
-                    <a class="pull-left" href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
-                        <img class="media-object" src={{playlist.cover_url}}
-                        alt="120x120" style="height: 120; width: 120;">
-                    </a>
-                    <div class="media-body">
-                        <a href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
-                            <h6 class="media-heading">{{playlist.name}}</h6>
+        {% if similar %}
+
+            {% for playlists in similar %}
+            <div class="row">
+                {% for playlist in playlists %}
+
+                <div class="span12" style="padding-left: 10px">
+                    <div class="media">
+                        <a class="pull-left" href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
+                            <img class="media-object" src={{playlist.cover_url}}
+                            alt="120x120" style="height: 120; width: 120;">
                         </a>
-                        <p class="muted">w/ {{playlist.featured_artists}}</p>
+                        <div class="media-body">
+                            <a href="{% url 'playlist_slug' playlistid=playlist.playlistid slug=playlist.slug %}">
+                                <h6 class="media-heading">{{playlist.name}}</h6>
+                            </a>
+                            <p class="muted">w/ {{playlist.featured_artists}}</p>
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             {% endfor %}
-        </div>
-        {% endfor %}
+
+        {% else %}
+
+            <div class="row">
+                <div class="span12" style="padding-left: 20px">
+                    <p class="muted">This playlist is entirely unique!</p>
+                </div>
+            </div>
+        {% endif %}
 
     </div>
 {% endblock %}
