@@ -55,10 +55,10 @@ TIME_ZONE = 'America/Chicago'
 #            'PORT': '',
 #            }
 #        }
-#
-#
 
-########### END DATABASE CONFIGURATION
+
+
+############ END DATABASE CONFIGURATION
 
 HAYSTACK_CONNECTIONS = {
         'default': {
