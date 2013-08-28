@@ -111,7 +111,8 @@ TEST_DISCOVER_PATTERN = "test_*.py"
 #HEROKU STUFF
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.parse(DATABASE_URL)
+DATABASES['default'] =  dj_database_url.config()
+print DATABASES['default']
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
